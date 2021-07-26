@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import * as yup from 'yup'
 import {reach} from 'yup'
+import styled from "styled-components";
 
 const initialFormValues={
     username:'',
@@ -28,9 +29,6 @@ export default function Login(props){
         .min(6, 'must have minimum of 6 charcters')
     })
 
-    // const update=(name, value)=>{
-        
-    // }
     const validate = (name, value) => {
         reach(schema, name)
           .validate(value)
@@ -61,33 +59,130 @@ export default function Login(props){
       }, [schema, formValues])
 
       return(
-          <div>
+          <FormContainer>
               <h1>Login</h1>
 
               <form onSubmit={onSubmit}>
-                  <div className='errors'>
-                      <div>{errors.username}</div><br/>
-                      <div>{errors.password}</div><br/>
-                  </div>
-                <label htmlFor='username'>Username:
-                  <input 
+                  <InputContianer>
+                  <ErrorsContainer>
+                      <div>{errors.username}</div>
+                      <div>{errors.password}</div>
+                      </ErrorsContainer>
+                <label htmlFor='username'>
+                  <Input 
                   type='text' 
                   name='username' 
                   value={formValues.username}
                   placeholder='username'
                   onChange={onChange}/>
-                </label><br/><br/>
+                </label>
 
-                <label htmlFor='Password'>Password:
-                  <input
+                <label htmlFor='Password'>
+                  <Input
                   type='password'
                   name='password'
                   value={formValues.password}
                   placeholder='password'
                   onChange={onChange}/>
-                </label><br/><br/>
-                  <button disabled={disabled}>Login</button>
+                </label>
+                </InputContianer>
+                <ButtonContaitner>
+                  <Button disabled={disabled}>Login</Button>
+
+                  <p>Create new account?</p>
+                  </ButtonContaitner>
               </form>
-          </div>
+          </FormContainer>
       )
 }
+
+const size = {
+    mobileS: "320px",
+    mobileM: "375px",
+    mobileL: "425px",
+    tablet: "768px",
+    laptop: "1024px",
+    laptopL: "1440px",
+    desktop: "2560px",
+  };
+
+const device = {
+    mobileS: `(min-width: ${size.mobileS})`,
+    mobileM: `(min-width: ${size.mobileM})`,
+    mobileL: `(min-width: ${size.mobileL})`,
+    tablet: `(min-width: ${size.tablet})`,
+    laptop: `(min-width: ${size.laptop})`,
+    laptopL: `(min-width: ${size.laptopL})`,
+    desktop: `(min-width: ${size.desktop})`,
+    desktopL: `(min-width: ${size.desktop})`,
+  };
+
+const FormContainer=styled.div`
+border: 1px solid darkgrey;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px darkgray;
+  color: #0e2923;
+  margin: 2rem auto 0 auto;
+  padding: 2rem;
+  text-align: center;
+  max-width: 800px;
+  @media ${device.mobileS} {
+    width: 70%;
+  }
+  @media ${device.tablet} {
+    width: 50%;
+  }
+  @media ${device.laptop} {
+    width: 40%;
+  }
+  @media ${device.desktopL} {
+    width: 30%;
+  }
+`
+
+const InputContianer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 1rem;
+`
+const Input = styled.input`
+  border: 2px solid darkgrey;
+  border-radius: 3px;
+  font-size: 1em;
+  margin: 1rem 0;
+  padding: 14px;
+`
+const ButtonContaitner = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+`
+const Button = styled.button`
+  background-color: #ed4933;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  height: 3rem;
+  letter-spacing: 0.175em;
+  line-height: 3rem;
+  margin: 1rem auto;
+  padding: 0 2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 30%;
+  &:disabled {
+    color: black;
+    background-color: white;
+    border: 2px solid black;
+    cursor: not-allowed;
+  }
+  &:hover {
+    opacity: 0.8;
+    transition: all 0.5s ease-out;
+  }
+`
+const ErrorsContainer = styled.div`
+  color: red;
+  text-align: left;
+`
