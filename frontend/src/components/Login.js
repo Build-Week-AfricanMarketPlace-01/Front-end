@@ -65,24 +65,25 @@ export default function Login(props){
               <form onSubmit={onSubmit}>
                   <InputContianer>
                   <ErrorsContainer>
-                      <div>{errors.username}</div>
-                      <div>{errors.password}</div>
-                      </ErrorsContainer>
+                      {errors.username}
+                    </ErrorsContainer>
                 <label htmlFor='username'>
                   <Input 
                   type='text' 
                   name='username' 
                   value={formValues.username}
-                  placeholder='username'
+                  placeholder='Username'
                   onChange={onChange}/>
                 </label>
-
+                <ErrorsContainer>
+                    {errors.password}
+                </ErrorsContainer>
                 <label htmlFor='Password'>
                   <Input
                   type='password'
                   name='password'
                   value={formValues.password}
-                  placeholder='password'
+                  placeholder='Password'
                   onChange={onChange}/>
                 </label>
                 </InputContianer>
@@ -104,7 +105,7 @@ const size = {
     laptop: "1024px",
     laptopL: "1440px",
     desktop: "2560px",
-  };
+  }
 
 const device = {
     mobileS: `(min-width: ${size.mobileS})`,
@@ -115,7 +116,7 @@ const device = {
     laptopL: `(min-width: ${size.laptopL})`,
     desktop: `(min-width: ${size.desktop})`,
     desktopL: `(min-width: ${size.desktop})`,
-  };
+  }
 
 const FormContainer=styled.div`
 border: 1px solid darkgrey;
