@@ -28,6 +28,9 @@ export default function Login(props){
         .min(6, 'must have minimum of 6 charcters')
     })
 
+    // const update=(name, value)=>{
+        
+    // }
     const validate = (name, value) => {
         reach(schema, name)
           .validate(value)
@@ -38,16 +41,24 @@ export default function Login(props){
       const onChange=(evt)=>{
           const {name, value}= evt.target
           validate(name, value)
+          setFormValues({...formValues, [name]:value})
       }
 
+      const submitForm=()=>{
+          const newData={
+              username: formValues.username.trim(),
+              password: formValues.password,
+          }
+          setFormValues(initialFormValues)
+      }
       const onSubmit=(evt)=>{
           evt.preventDefault()
-          setFormValues(initialFormValues)
+          submitForm()
       }
 
       useEffect(()=>{
           schema.isValid(formValues).then(valid=>setDisabled(!valid))
-      }, [formValues])
+      }, [schema, formValues])
 
       return(
           <div>
@@ -55,8 +66,8 @@ export default function Login(props){
 
               <form onSubmit={onSubmit}>
                   <div className='errors'>
-                      <div>{errors.username}</div>
-                      <div>{errors.password}</div>
+                      <div>{errors.username}</div><br/>
+                      <div>{errors.password}</div><br/>
                   </div>
                 <label htmlFor='username'>Username:
                   <input 
@@ -65,7 +76,7 @@ export default function Login(props){
                   value={formValues.username}
                   placeholder='username'
                   onChange={onChange}/>
-                </label>
+                </label><br/><br/>
 
                 <label htmlFor='Password'>Password:
                   <input
@@ -74,7 +85,7 @@ export default function Login(props){
                   value={formValues.password}
                   placeholder='password'
                   onChange={onChange}/>
-                </label>
+                </label><br/><br/>
                   <button disabled={disabled}>Login</button>
               </form>
           </div>
