@@ -18,7 +18,7 @@ export default function Signup () {
     const onSubmit = evt => {
         evt.preventDefault()
         axios
-            .post(/*Insert endpoint here*/, formValues)
+            .post(/*Insert endpoint here*/ formValues)
             .then(res =>{
                 console.log(res.data)
                 setFormValues(initialFormValues)
@@ -39,7 +39,7 @@ export default function Signup () {
 
     return (
     <div className="signup-form">
-      <h1>Sign up</h2>
+      <h1>Sign up</h1>
       <h2>Create a Marketplace account</h2>
       <div>
         <form onSubmit={onSubmit}>
