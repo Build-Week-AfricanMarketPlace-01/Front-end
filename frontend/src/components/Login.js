@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import * as yup from 'yup'
 import {reach} from 'yup'
 import styled from "styled-components";
+
 const initialFormValues={
     username:'',
     password:'',
@@ -28,9 +29,6 @@ export default function Login(props){
         .min(6, 'must have minimum of 6 charcters')
     })
 
-    // const update=(name, value)=>{
-        
-    // }
     const validate = (name, value) => {
         reach(schema, name)
           .validate(value)
