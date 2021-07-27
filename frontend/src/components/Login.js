@@ -59,41 +59,41 @@ export default function Login(props){
       }, [schema, formValues])
 
       return(
-          <FormContainer>
-              <h1>Login</h1>
+        <FormContainer>
+        <h1>Login</h1>
 
-              <form onSubmit={onSubmit}>
-                  <InputContianer>
-                  <ErrorsContainer>
-                      {errors.username}
-                    </ErrorsContainer>
-                <label htmlFor='username'>
-                  <Input 
-                  type='text' 
-                  name='username' 
-                  value={formValues.username}
-                  placeholder='Username'
-                  onChange={onChange}/>
-                </label>
-                <ErrorsContainer>
-                    {errors.password}
-                </ErrorsContainer>
-                <label htmlFor='Password'>
-                  <Input
-                  type='password'
-                  name='password'
-                  value={formValues.password}
-                  placeholder='Password'
-                  onChange={onChange}/>
-                </label>
-                </InputContianer>
-                <ButtonContaitner>
-                  <Button disabled={disabled}>Login</Button>
+        <form onSubmit={onSubmit}>
+            <InputContianer>
+            <ErrorsContainer>
+                {errors.username}
+              </ErrorsContainer>
+          <label htmlFor='username'>
+            <Input 
+            type='text' 
+            name='username' 
+            value={formValues.username}
+            placeholder='Username'
+            onChange={onChange}/>
+          </label>
+          <ErrorsContainer>
+              {errors.password}
+          </ErrorsContainer>
+          <label htmlFor='Password'>
+            <Input
+            type='password'
+            name='password'
+            value={formValues.password}
+            placeholder='Password'
+            onChange={onChange}/>
+          </label>
+          </InputContianer>
+          <ButtonContaitner>
+            <Button disabled={disabled}>Login</Button>
 
-                  <p>Create new account?</p>
-                  </ButtonContaitner>
-              </form>
-          </FormContainer>
+            <p>Create new account?</p>
+            </ButtonContaitner>
+        </form>
+    </FormContainer>
       )
 }
 
