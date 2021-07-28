@@ -6,14 +6,26 @@ import pic03 from "../African Marketplace/images/pic03.jpeg";
 import styled from "styled-components";
 import Signup from "./Signup";
 import Login from "./Login";
+import AddItems from "./AddItems";
+
+const A = styled.a`
+  display: flex;
+  flex-wrap: nowrap;
+`;
 
 export default function Homepage() {
   return (
     <div>
       <div id="page-wrapper">
         <header id="header" className="alt">
+          <nav>
+            <A>Login</A>
+            <A>Signup</A>
+            <A>Add Items</A>
+            <A>List</A>
+          </nav>
           <nav id="nav">
-            <ul>
+            {/* <ul>
               <li className="special">
                 <a href="#menu" className="menuToggle is-menu-visible">
                   <span>Menu</span>
@@ -21,7 +33,7 @@ export default function Homepage() {
                 <div id="menu">
                   <ul>
                     <li>
-                      <a href="index.html">Home</a>
+                      <a href="/">Home</a>
                     </li>
                     <li>
                       <a href={Signup}>Sign Up</a>
@@ -32,7 +44,7 @@ export default function Homepage() {
                   </ul>
                 </div>
               </li>
-            </ul>
+            </ul> */}
           </nav>
         </header>
 

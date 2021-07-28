@@ -6,9 +6,9 @@ function App() {
   return (
     <div className="App">
       <Homepage />
-      <AddItems />
+      {/* <AddItems />
       <Signup />
-      <Login />
+      <Login /> */}
     </div>
   );
 }
