@@ -1,8 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import { useHistory } from 'react-router-dom';
 
 
 export default function Signup () {
+
+  const history = useHistory();
+
     const initialFormValues ={
         email: "",
         username:'',
@@ -18,11 +22,13 @@ export default function Signup () {
     const onSubmit = evt => {
         evt.preventDefault()
         axios
-            .post(/*Insert endpoint here*/ formValues)
+            .post('https://build-week-africanmarketplace1.herokuapp.com/api/register', formValues)
             .then(res =>{
                 console.log(res.data)
+                history.push('/login')
                 setFormValues(initialFormValues)
                 // how do we change URLS now?
+                 //added here
             })
             .catch(err => {
                 console.log(err)

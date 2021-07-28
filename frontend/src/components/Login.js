@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import * as yup from 'yup'
 import {reach} from 'yup'
 import styled from "styled-components";
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 const initialFormValues={
     username:'',
@@ -14,9 +16,13 @@ const initialErrors={
 }
 
 export default function Login(props){
+    const history = useHistory();
+
     const [formValues, setFormValues]= useState(initialFormValues)
     const [errors, setErrors]= useState(initialErrors)
     const [disabled, setDisabled]= useState(true)
+
+   
 
     const schema=yup.object().shape({
         username: yup
@@ -42,6 +48,10 @@ export default function Login(props){
           setFormValues({...formValues, [name]:value})
       }
 
+      const signupHandle =()=>{
+          history.push('/register')
+      }
+
       const submitForm=()=>{
           const newData={
               username: formValues.username.trim(),
@@ -50,7 +60,19 @@ export default function Login(props){
           setFormValues(initialFormValues)
       }
       const onSubmit=(evt)=>{
-          evt.preventDefault()
+          evt.preventDefault();
+
+          axios
+          .post('https://build-week-africanmarketplace1.herokuapp.com/api/users/login', formValues) //get the right endpoint
+          .then(res =>{
+              console.log('i am here',res)
+              localStorage.setItem('token', res.data.payload)
+              history.push('/list'); //pushes to protected page 'list'
+          })
+          .catch(err =>{
+              console.log(err)
+          })
+
           submitForm()
       }
 
@@ -90,7 +112,8 @@ export default function Login(props){
           <ButtonContaitner>
             <Button disabled={disabled}>Login</Button>
 
-            <p>Create new account?</p>
+            <button onClick={signupHandle}>Create new account?</button> 
+            {/* //made changes to create button */}
             </ButtonContaitner>
         </form>
     </FormContainer>
