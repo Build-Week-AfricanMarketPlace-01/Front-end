@@ -9,8 +9,14 @@ import Login from "./Login";
 import AddItems from "./AddItems";
 
 const A = styled.a`
-  display: flex;
-  flex-wrap: nowrap;
+  justify-content: flex-end;
+  flex-direction: column;
+  margin-right: 10px;
+  margin-left: 20px;
+  :hover {
+    background-color: #ed4933;
+    border-radius: 20px;
+  }
 `;
 
 export default function Homepage() {
@@ -18,34 +24,10 @@ export default function Homepage() {
     <div>
       <div id="page-wrapper">
         <header id="header" className="alt">
-          <nav>
-            <A>Login</A>
-            <A>Signup</A>
-            <A>Add Items</A>
-            <A>List</A>
-          </nav>
-          <nav id="nav">
-            {/* <ul>
-              <li className="special">
-                <a href="#menu" className="menuToggle is-menu-visible">
-                  <span>Menu</span>
-                </a>
-                <div id="menu">
-                  <ul>
-                    <li>
-                      <a href="/">Home</a>
-                    </li>
-                    <li>
-                      <a href={Signup}>Sign Up</a>
-                    </li>
-                    <li>
-                      <a href={Login}>Log In</a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul> */}
-          </nav>
+          <A>Login</A>
+          <A>Signup</A>
+          <A>Add Items</A>
+          <A>List</A>
         </header>
 
         <section id="banner">
@@ -65,9 +47,7 @@ export default function Homepage() {
               </li>
             </ul>
           </div>
-          <a href="#one" className="more scrolly">
-            Learn More
-          </a>
+          <a className="more scrolly">Learn More</a>
         </section>
 
         <section id="one" className="wrapper style1 special">
@@ -233,14 +213,10 @@ export default function Homepage() {
             </header>
             <ul className="actions stacked">
               <li>
-                <a href="#" className="button fit primary">
-                  Activate
-                </a>
+                <a className="button fit primary">Activate</a>
               </li>
               <li>
-                <a href="#" className="button fit">
-                  Learn More
-                </a>
+                <a className="button fit">Learn More</a>
               </li>
             </ul>
           </div>
@@ -281,7 +257,7 @@ export default function Homepage() {
               </a>
             </li>
             <li>
-              <a href="#" className="icon solid fa-envelope">
+              <a className="icon solid fa-envelope">
                 <span className="label">Email</span>
               </a>
             </li>
