@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import * as yup from 'yup'
 import {reach} from 'yup'
 import styled from "styled-components";
+import { useHistory } from 'react-router';
+import axios from 'axios';
 
 const initialFormValues={
     username:'',
@@ -17,6 +19,12 @@ export default function Login(props){
     const [formValues, setFormValues]= useState(initialFormValues)
     const [errors, setErrors]= useState(initialErrors)
     const [disabled, setDisabled]= useState(true)
+
+    const {push} = useHistory();
+
+    const createHandler = () =>{
+        push('/register')
+    }
 
     const schema=yup.object().shape({
         username: yup
@@ -51,6 +59,18 @@ export default function Login(props){
       }
       const onSubmit=(evt)=>{
           evt.preventDefault()
+
+          axios
+          .post('https://build-week-africanmarketplace1.herokuapp.com/api/users/login', formValues)
+          .then(res =>{
+              console.log(res)
+              localStorage.setItem('token', res.data.token)
+              push('/additems')
+          })
+          .catch(err =>{
+              console.log(err)
+          })
+
           submitForm()
       }
 
@@ -90,7 +110,7 @@ export default function Login(props){
           <ButtonContaitner>
             <Button disabled={disabled}>Login</Button>
 
-            <p>Create new account?</p>
+            <Button onClick={createHandler}>Create new account?</Button>
             </ButtonContaitner>
         </form>
     </FormContainer>

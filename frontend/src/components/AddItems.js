@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import * as yup from "yup";
 import { reach } from "yup";
 import styled from "styled-components";
+import axios from 'axios';
 
 const initialFormValues = {
   name: "",
@@ -19,7 +20,7 @@ const initialErrors = {
   category: "",
 };
 
-export default function AddItems() {
+export default function AddItems(props) {  //added props
   const [formValues, setFormValues] = useState(initialFormValues);
   const [errors, setErrors] = useState(initialErrors);
   const [disabled, setDisabled] = useState(true);

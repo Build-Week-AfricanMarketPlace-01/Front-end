@@ -7,27 +7,45 @@ import styled from "styled-components";
 import Signup from "./Signup";
 import Login from "./Login";
 import AddItems from "./AddItems";
+import { useHistory } from "react-router";
+import { Route, Redirect } from "react-router-dom";
 
-const A = styled.a`
+const A = styled.button`
   justify-content: flex-end;
   flex-direction: column;
   margin-right: 10px;
   margin-left: 20px;
+  
   :hover {
     background-color: #ed4933;
-    border-radius: 20px;
+    border-radius: 10px;
   }
 `;
 
 export default function Homepage() {
+  const {push} = useHistory();
+
+  const loginHandler = ()=>{
+    push('/login')
+  }
+  const signupHandler = ()=>{
+    push('/register')
+  }
+  const additemsHandler = ()=>{
+    push('/additems')
+  }
+  const listHandler = ()=>{
+    push('/list')
+  }
+
   return (
     <div>
       <div id="page-wrapper">
         <header id="header" className="alt">
-          <A>Login</A>
-          <A>Signup</A>
-          <A>Add Items</A>
-          <A>List</A>
+          <A onClick={loginHandler}>Login</A>
+          <A onClick={signupHandler}>Signup</A>
+          <A onClick={additemsHandler}>Add Items</A>
+          <A onClick={listHandler}>List</A>
         </header>
 
         <section id="banner">
@@ -41,7 +59,7 @@ export default function Homepage() {
             </p>
             <ul className="actions special">
               <li>
-                <a href={Signup} className="button primary">
+                <a onClick={signupHandler} className="button primary">
                   Activate
                 </a>
               </li>
@@ -213,7 +231,7 @@ export default function Homepage() {
             </header>
             <ul className="actions stacked">
               <li>
-                <a className="button fit primary">Activate</a>
+                <a onClick={signupHandler} className="button fit primary">Activate</a>
               </li>
               <li>
                 <a className="button fit">Learn More</a>
