@@ -3,6 +3,7 @@ import axios from 'axios'
 import styled from 'styled-components'
 import * as yup from 'yup'
 import {reach} from 'yup'
+import { useHistory } from 'react-router'
 
 export default function Signup () {
     const initialFormValues ={
@@ -26,6 +27,7 @@ export default function Signup () {
     const [errors, setErrors]=useState(initialErrors)
     const [disabled, setDisabled]= useState(true)
 
+    const {push} = useHistory();
     const schema=yup.object().shape({
       username: yup
       .string()
@@ -59,9 +61,10 @@ export default function Signup () {
     const onSubmit = evt => {
         evt.preventDefault()
         axios
-            .post(/*Insert endpoint here*/ formValues)
+            .post('https://build-week-africanmarketplace1.herokuapp.com/api/users/register', formValues)
             .then(res =>{
                 console.log(res.data)
+                push('/login');
                 setFormValues(initialFormValues)
                 // how do we change URLS now?
             })
