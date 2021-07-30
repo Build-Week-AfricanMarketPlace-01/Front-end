@@ -4,7 +4,7 @@ const axiosWithAuth = ()=> {
     const token = localStorage.getItem('token');
 
     return axios.create({
-        baseURL: 'https://build-week-africanmarketplace1.herokuapp.com/api/users',
+        baseURL: 'https://build-week-africanmarketplace1.herokuapp.com/api',
         headers: {
             authorization: token
         }

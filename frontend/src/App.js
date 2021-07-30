@@ -17,12 +17,6 @@ function App() {
           <Route exact path = '/register' component={Signup}/>
           <PrivateRoute exact path = '/additems' component={AddItems}/>
           <PrivateRoute exact path = '/list' component={ItemList}/>
-
-
-
-          {/* <AddItems />
-          <Signup />
-          <Login /> */}
         </Switch>
       </div>
     </Router>

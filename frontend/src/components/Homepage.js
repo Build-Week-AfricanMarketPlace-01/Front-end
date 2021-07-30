@@ -4,11 +4,8 @@ import pic01 from "../African Marketplace/images/pic01.jpeg";
 import pic02 from "../African Marketplace/images/pic02.jpeg";
 import pic03 from "../African Marketplace/images/pic03.jpeg";
 import styled from "styled-components";
-import Signup from "./Signup";
-import Login from "./Login";
-import AddItems from "./AddItems";
 import { useHistory } from "react-router";
-import { Route, Redirect } from "react-router-dom";
+
 
 const A = styled.button`
   justify-content: flex-end;
