@@ -6,7 +6,7 @@ import pic03 from "../African Marketplace/images/pic03.jpeg";
 import styled from "styled-components";
 import { useHistory } from "react-router";
 
-
+//added vercel needed dependency
 const A = styled.button`
   justify-content: flex-end;
   flex-direction: column;
