@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import * as yup from "yup";
 import { reach } from "yup";
 import styled from "styled-components";
-import axios from "axios";
+import axiosWithAuth from "../utilis/axiosWithAuth";
+import { useHistory, useParams } from "react-router";
+import { addItem } from "../actions";
 
 const initialFormValues = {
   name: "",
@@ -25,6 +27,9 @@ export default function AddItems(props) {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [errors, setErrors] = useState(initialErrors);
   const [disabled, setDisabled] = useState(true);
+
+  const {push} = useHistory();
+  const {id} = useParams();
 
   const schema = yup.object().shape({
     name: yup
@@ -63,6 +68,15 @@ export default function AddItems(props) {
 
   const onSubmit = (evt) => {
     evt.preventDefault();
+    axiosWithAuth()
+    .post('/items/user/', formValues)
+    .then(res =>{
+        console.log('here',res)
+        push('/items')
+    })
+    .catch(err =>{
+        console.log(err)
+    })
     submitForm();
   };
 

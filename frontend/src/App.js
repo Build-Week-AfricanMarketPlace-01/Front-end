@@ -11,16 +11,13 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
-          <Route exact path="/" component={Homepage} />
-          <Route exact path="/homepage" component={Homepage} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/register" component={Signup} />
-          <PrivateRoute exact path="/additems" component={AddItems} />
-          <PrivateRoute exact path="/list" component={ItemList} />
+          <Route exact path = '/' component={Homepage}/>
+          <Route exact path = '/homepage' component={Homepage}/>
+          <Route exact path = '/login' component={Login}/>
+          <Route exact path = '/register' component={Signup}/>
+          <PrivateRoute exact path = '/additems' component={AddItems}/>
+          <PrivateRoute exact path = '/list' component={ItemList}/>
 
-          {/* <AddItems />
-          <Signup />
-          <Login /> */}
         </Switch>
       </div>
     </Router>
