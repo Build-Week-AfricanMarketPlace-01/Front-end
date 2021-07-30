@@ -22,7 +22,8 @@ const initialErrors = {
   category: "",
 };
 
-export default function AddItems(props) {  //added props
+export default function AddItems(props) {
+  //added props
   const [formValues, setFormValues] = useState(initialFormValues);
   const [errors, setErrors] = useState(initialErrors);
   const [disabled, setDisabled] = useState(true);
@@ -117,6 +118,7 @@ export default function AddItems(props) {  //added props
             onChange={onChange}
             value={formValues.price}
             min="1"
+            style={{ backgroundColor: "rgba(144,144,144,0.25)" }}
           />
 
           <Errors>{errors.description}</Errors>
@@ -149,7 +151,7 @@ const H1 = styled.h1`
 const FormContainer = styled.div`
   border: 1px solid darkgrey;
   border-radius: 7px;
-  margin: 3rem 16rem;
+  margin: 1.5rem 16rem;
   padding: 2rem;
   text-align: center;
 `;
@@ -159,7 +161,6 @@ const InputContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   margin: 4rem;
-  color: black;
 `;
 
 const Input = styled.input`

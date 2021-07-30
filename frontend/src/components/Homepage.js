@@ -12,7 +12,7 @@ const A = styled.button`
   flex-direction: column;
   margin-right: 10px;
   margin-left: 20px;
-  
+
   :hover {
     background-color: #ed4933;
     border-radius: 10px;
@@ -20,20 +20,20 @@ const A = styled.button`
 `;
 
 export default function Homepage() {
-  const {push} = useHistory();
+  const { push } = useHistory();
 
-  const loginHandler = ()=>{
-    push('/login')
-  }
-  const signupHandler = ()=>{
-    push('/register')
-  }
-  const additemsHandler = ()=>{
-    push('/additems')
-  }
-  const listHandler = ()=>{
-    push('/list')
-  }
+  const loginHandler = () => {
+    push("/login");
+  };
+  const signupHandler = () => {
+    push("/register");
+  };
+  const additemsHandler = () => {
+    push("/additems");
+  };
+  const listHandler = () => {
+    push("/list");
+  };
 
   return (
     <div>
@@ -228,7 +228,9 @@ export default function Homepage() {
             </header>
             <ul className="actions stacked">
               <li>
-                <a onClick={signupHandler} className="button fit primary">Activate</a>
+                <a onClick={signupHandler} className="button fit primary">
+                  Activate
+                </a>
               </li>
               <li>
                 <a className="button fit">Learn More</a>
