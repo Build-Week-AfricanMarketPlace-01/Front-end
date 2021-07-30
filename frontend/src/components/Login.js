@@ -51,10 +51,10 @@ export default function Login(props) {
   };
 
   const submitForm = () => {
-    const newData = {
-      username: formValues.username.trim(),
-      password: formValues.password,
-    };
+    // const newData = {
+    //   username: formValues.username.trim(),
+    //   password: formValues.password,
+    // };
     setFormValues(initialFormValues);
   };
   const onSubmit = (evt) => {

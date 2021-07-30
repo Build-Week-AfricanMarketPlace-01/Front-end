@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Item from './Item'
 import axiosWithAuth from '../utilis/axiosWithAuth';
 import {connect} from 'react-redux';
-import { getItem } from '../actions';
+
 
 
 const ItemList = (props) => {
@@ -12,7 +12,7 @@ const ItemList = (props) => {
 
     useEffect(() => {
         axiosWithAuth()
-          .get("/users") //need to get the endpoint
+          .get("/users") 
           .then((res) => {
             setItemList(res.data);
             console.table(res.data, "items list");
