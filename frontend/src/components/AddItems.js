@@ -4,7 +4,6 @@ import { reach } from "yup";
 import styled from "styled-components";
 import axiosWithAuth from "../utilis/axiosWithAuth";
 import { useHistory, useParams } from "react-router";
-import { addItem } from "../actions";
 
 const initialFormValues = {
   name: "",
@@ -23,7 +22,6 @@ const initialErrors = {
 };
 
 export default function AddItems(props) {
-  //added props
   const [formValues, setFormValues] = useState(initialFormValues);
   const [errors, setErrors] = useState(initialErrors);
   const [disabled, setDisabled] = useState(true);
@@ -56,20 +54,20 @@ export default function AddItems(props) {
   };
 
   const submitForm = () => {
-    const newData = {
-      username: formValues.name.trim(),
-      place: formValues.place,
-      price: formValues.price,
-      description: formValues.description,
-      category: formValues.category,
-    };
+    // const newData = {
+    //   username: formValues.name.trim(),
+    //   place: formValues.place,
+    //   price: formValues.price,
+    //   description: formValues.description,
+    //   category: formValues.category,
+    // };
     setFormValues(initialFormValues);
   };
 
   const onSubmit = (evt) => {
     evt.preventDefault();
     axiosWithAuth()
-    .post('/items/user/', formValues)
+    .post(`/items/user/${id}`, formValues)
     .then(res =>{
         console.log('here',res)
         push('/items')

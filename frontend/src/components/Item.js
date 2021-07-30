@@ -1,8 +1,7 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 
 export default function Item(props) {
-    
-    // console.log(props); 
+  
 
     return (
       <div>

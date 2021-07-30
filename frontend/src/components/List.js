@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Item from './Item'
 import axiosWithAuth from '../utilis/axiosWithAuth';
 import {connect} from 'react-redux';
-import { getItem } from '../actions';
+
 
 
 const ItemList = (props) => {

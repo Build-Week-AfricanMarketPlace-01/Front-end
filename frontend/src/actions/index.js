@@ -1,4 +1,3 @@
-import axios from "axios";
 import axiosWithAuth from "../utilis/axiosWithAuth";
 
 export const ADD_ITEM = 'ADD_ITEM';

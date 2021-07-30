@@ -56,13 +56,13 @@ export default function Homepage() {
             </p>
             <ul className="actions special">
               <li>
-                <a onClick={signupHandler} className="button primary">
+                <a href='/#' onClick={signupHandler} className="button primary">
                   Activate
                 </a>
               </li>
             </ul>
           </div>
-          <a className="more scrolly">Learn More</a>
+          <a  href='/#' className="more scrolly">Learn More</a>
         </section>
 
         <section id="one" className="wrapper style1 special">
@@ -228,12 +228,12 @@ export default function Homepage() {
             </header>
             <ul className="actions stacked">
               <li>
-                <a onClick={signupHandler} className="button fit primary">
+                <a href='/#' onClick={signupHandler} className="button fit primary">
                   Activate
                 </a>
               </li>
               <li>
-                <a className="button fit">Learn More</a>
+                <a href='/#' className="button fit">Learn More</a>
               </li>
             </ul>
           </div>
@@ -274,7 +274,7 @@ export default function Homepage() {
               </a>
             </li>
             <li>
-              <a className="icon solid fa-envelope">
+              <a href='/#' className="icon solid fa-envelope">
                 <span className="label">Email</span>
               </a>
             </li>
