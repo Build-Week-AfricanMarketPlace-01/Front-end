@@ -56,6 +56,7 @@ export default function Login(props) {
     //   password: formValues.password,
     // };
     setFormValues(initialFormValues);
+    push('/')
   };
   const onSubmit = (evt) => {
     evt.preventDefault();
